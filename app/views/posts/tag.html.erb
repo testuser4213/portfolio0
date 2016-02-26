@@ -1,0 +1,14 @@
+<h1>With tag &laquo;<%= @tag %>&raquo;</h1>
+
+<% if @posts.any? %>
+  <div class="row">
+    <div class="col-md-8 col-xs-12">
+      <%= render 'list' %>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <%= render "shared/sidebar" %>
+    </div>
+  </div>
+<% else %>
+  <h3>No posts :'(</h3>
+<% end %>

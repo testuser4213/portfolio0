@@ -1,0 +1,7 @@
+<h2 class="tag-cloud-header">Tags</h2>
+
+<div class="tag-cloud">
+  <% tag_cloud Tag.counted, %w{ tag-1 tag-2 tag-3 tag-4 tag-5 } do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>

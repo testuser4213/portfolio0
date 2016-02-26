@@ -1,0 +1,15 @@
+<h1>Search results for &laquo;<%= @query %>&raquo;</h1>
+
+<% if @posts.any? %>
+  <div class="row">
+    <div class="col-md-8 col-xs-12">
+      <h3><%= @posts.count %> results</h3>
+      <%= render 'list' %>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <%= render "shared/sidebar" %>
+    </div>
+  </div>
+<% else %>
+  <h3>No match found :'(</h3>
+<% end %>

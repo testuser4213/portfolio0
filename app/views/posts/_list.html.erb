@@ -1,0 +1,18 @@
+<% @posts.each do |post| %>
+  <div class="post-view">
+    <span class="posted-at"><%= time_ago_in_words(post.created_at) %> ago</span>
+    <h1 class="title"><%= link_to post.title, post %></h1>
+    <span class="tags">
+      <% post.tags.each do |tag| %>
+        <span class="tag"><%= icon('tag') %> <%= link_to tag.name, tag_path(tag.name) %></span>
+      <% end %>
+    </span>
+    <p class="text"><%= markdown truncate(post.body, length: 5000, omission: '...') %></p>
+    <%= link_to "Read More", post, class: "readmore" %>
+    <hr>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @posts %>
+</div>

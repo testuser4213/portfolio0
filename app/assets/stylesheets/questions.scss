@@ -1,0 +1,114 @@
+$circle-radius: 60px;
+$circle-width: 8px;
+$lifetime-width: 6px;
+$lifetime-color: black;
+$initial-circle-color: black;
+$fill-circle-color: white;
+$pinned-circle-radius: 10px;
+$lifetime-container-width: 85px;
+$lifetime-container-height: 85px;
+$avatar-size: $circle-radius - 2*$circle-width;
+
+.question-view {
+  .circle-bar {
+    position: relative;
+    width: $lifetime-container-width;
+    min-height: $lifetime-container-height;
+    height: 100%;
+
+    .vertical-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: $lifetime-width;
+      background: $lifetime-color;
+      box-shadow: 0 0 2px #333;
+    }
+
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: $circle-radius;
+      height: $circle-radius;
+      border: $circle-width solid $initial-circle-color;
+      border-radius: 50%;
+      background: $fill-circle-color;
+      box-shadow: 0 1px 5px #333;
+
+      img {
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .info-bar {
+    hr { margin-top: 0; }
+    p { margin: 0; }
+
+    .asked-by {
+      font-size: 0.9em;
+    }
+  }
+}
+
+.lifetime-endpoint {
+  .circle-bar {
+    position: relative;
+    width: $lifetime-container-width;
+    min-height: $lifetime-container-height;
+
+    .start-vertical-line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: $lifetime-width;
+      background: $lifetime-color;
+    }
+
+    .finish-vertical-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 50%;
+      transform: translateX(-50%);
+      width: $lifetime-width;
+      background: $lifetime-color;
+    }
+
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: $pinned-circle-radius solid $lifetime-color;
+      border-radius: 50%;
+      background: $lifetime-color;
+    }
+  }
+}
+
+.question-new {
+  .circle-bar {
+    .circle { border-color: #70d03c; }
+  }
+}
+
+.question-closed {
+  .circle-bar {
+    .circle { border-color: #cf4f18; }
+  }
+}
+
+.question-profile-line {
+  display: block;
+  background: rgba(#9d5672, 0.24);
+}

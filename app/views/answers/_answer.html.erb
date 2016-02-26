@@ -1,0 +1,13 @@
+<div class="answer" id="answer-<%= answer.id %>">
+  <div class="profile-line">
+    <%= image_tag answer.user.avatar.url, class: "avatar" %>
+    <span class="username"><%= link_to answer.user.email, answer.user %></span>
+    <span class="timestamp"><%= format_timestamp(answer.created_at) %></span>
+    <span class="actions">
+      <% if can? :destroy, answer %>
+        <%= link_to icon('trash-o'), [@post, @question, answer], method: :delete, remote: true, data: { confirm: "Are you sure?" }, title: "Delete" %>
+      <% end %>
+    </span>
+  </div>
+  <p><%= markdown(answer.body) %></p>
+</div>

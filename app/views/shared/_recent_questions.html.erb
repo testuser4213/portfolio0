@@ -1,0 +1,10 @@
+<h2 class="recent-questions-header">Recent questions</h2>
+
+<ul class="recent-items">
+  <% Question.recent_questions 10 do |question| %>
+    <li>
+      <%= link_to truncate(question.title, length: 30), post_question_path(question.post, question) %>
+      <%= icon('comments') %> <span class="counter"><%= question.count %></span>
+    </li>
+  <% end %>
+</ul>

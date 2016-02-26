@@ -1,0 +1,11 @@
+<% if @answer.valid? %>
+  // append new answer and clear form
+  var newAnswer = $('<%= j render @answer %>').hide();
+  $("#answers").append(newAnswer);
+  newAnswer.fadeIn();
+  $("#answer_body").val("");
+  $("#error_explanation").remove();
+<% else %>
+  // render form with errors
+  $("#new-answer-container").html('<%= j render "form" %>')
+<% end %>

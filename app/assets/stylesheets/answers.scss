@@ -1,0 +1,36 @@
+$avatar-width: 20px;
+$avatar-height: 20px;
+
+.answer {
+  margin-bottom: 20px;
+}
+
+.profile-line {
+  display: inline-block;
+  padding: 5px 7px;
+  background: rgba(#4c9c78, 0.17);
+  border-radius: 2px;
+
+  .avatar {
+    width: $avatar-width;
+    height: $avatar-height;
+    object-fit: cover;
+  }
+
+  .username, .timestamp, .actions {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .username, .username a {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .timestamp {
+    font-size: 12px;
+  }
+
+  .actions {}
+}

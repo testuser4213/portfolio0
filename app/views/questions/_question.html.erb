@@ -1,0 +1,13 @@
+<div class="clearfix question-view <%= closed_css_class(question) %>">
+  <div class="circle-bar pull-left">
+    <div class="vertical-line"></div>
+    <div class="circle">
+      <%= image_tag question.user.avatar.url %>
+    </div>
+  </div>
+  <div class="info-bar">
+    <hr>
+    <p title="<%= question.title %>"><%= link_to truncate(question.title, length: 30, omission: '...'), post_question_path(@post, question) %></p>
+    <p class="asked-by"><b><%= question.user.email %></b> asked at <%= format_date(question.created_at) %></p>
+  </div>
+</div>

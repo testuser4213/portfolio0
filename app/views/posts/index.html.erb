@@ -1,0 +1,14 @@
+<h1 class="no-top-margin">Tutorials</h1>
+
+<% if @posts.any? %>
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <%= render 'list' %>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <%= render "shared/sidebar" %>
+    </div>
+  </div>
+<% else %>
+  <h3>Currently there is no tutorials :'(</h3>
+<% end %>

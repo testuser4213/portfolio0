@@ -1,0 +1,25 @@
+.intro-icons {
+  margin-top: 40px;
+
+  .intro-icon, .intro-icon-label {
+    color: #787878;
+    margin: 30px;
+  }
+
+  .intro-icon {
+    font-size: 75px;
+  }
+
+  .intro-icon-label {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .intro-description {
+    width: 80%;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+}

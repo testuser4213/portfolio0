@@ -1,0 +1,164 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "posts";
+@import "questions";
+@import "answers";
+@import "questions";
+@import "tags";
+@import "static_pages";
+@import "users";
+
+
+// selection color
+::-moz-selection {
+  color: #333;
+  background: rgba(#eef73b, 0.84);
+}
+
+::selection {
+  color: #333;
+  background: rgba(#eef73b, 0.84);
+}
+
+.animated-width {
+  transition: width 1.2s cubic-bezier(0.52, 0.07, 0.68, 0.19);
+}
+
+
+// sidebar gray box
+.gray-box {
+  margin-bottom: 10px;
+  padding: 5px 20px 20px 20px;
+  background: #eee;
+}
+
+// read more button
+.readmore {
+  display: inline-block;
+  padding: 0 15px;
+  height: 22px;
+  line-height: 22px;
+  background-image: linear-gradient(to bottom, #eaeaea, #e0e0e0);
+  box-shadow: 0 0 2px white inset, 0 1px 1px #999999;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    color: #333;
+    text-decoration: none;
+    box-shadow: 0 0 2px white inset, 0 2px 3px 0 #888888, 0 4px 12px 0 #999999;
+  }
+
+  &:active {
+    transition: all 100ms ease-in-out;
+    color: #333;
+    box-shadow: 0 0 2px white inset, 0 1px 1px #000000;
+  }
+}
+
+.profile-image {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+// util class
+.no-top-margin {
+  margin-top: 0;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0;
+}
+
+// app container
+.app-content {
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
+// app footer
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: 20px;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  box-shadow: 0 0 2px #333;
+
+  .link {
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all 300ms;
+
+    &:hover {
+      color: #eaeaea;
+    }
+  }
+
+  .center-on-small {
+    @media (max-width: 992px) {
+      text-align: center;
+    }
+  }
+}
+
+.avatar {
+  max-width: 250px;
+}
+
+.recent-items {
+  list-style: none;
+  padding: 0;
+
+  li {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 20px;
+
+    a {
+      font-size: 15px;
+      color: #666;
+    }
+
+    .counter {
+      color: #24629A;
+    }
+  }
+}
+
+.recent-post-header, .tag-cloud-header, .recent-questions-header {
+  color: #524A4A;
+}
+
+.tag-cloud {
+  a {
+    color: #666;
+  }
+}
+
+.navbar {
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.30);
+}
+
+.full-width {
+  display: block;
+}
+
+.affix {
+  max-width: 390px;
+}

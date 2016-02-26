@@ -1,0 +1,7 @@
+<h2 class="recent-post-header">Recent tuts</h2>
+
+<ul class="recent-items">
+  <% Post.recent_posts 10 do |post| %>
+    <li><%= link_to post.title, post %></li>
+  <% end %>
+</ul>

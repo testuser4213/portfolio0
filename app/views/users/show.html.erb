@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <div class="row">
+      <div class="col-xs-3">
+        <%= image_tag @user.avatar.url, class: "fluid-avatar" %>
+      </div>
+      <div class="col-xs-9">
+        <h3 class="no-top-margin">
+          <%= @user.email %>
+          <% if @user.admin? %>
+            <span class="label label-success">writer</span>
+          <% else %>
+            <span class="label label-default">reader</span>
+          <% end %>
+        </h3>
+        <p class="reg-date">Registered at <%= format_time(@user.created_at) %></p>
+      </div>
+    </div>
+
+    <h3>Recent questions</h3>
+    <% if @questions.any? %>
+      <ul class="activity-list">
+        <% @questions.each do |question| %>
+          <li>
+            <%= link_to post_question_path(post_id: question.post_id, id: question.id) do %>
+              <%= truncate(question.title, length: 200, omission: "...") %>
+            <% end %>
+            <span class="time"><%= format_time(question.created_at) %></span>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Empty :'(</p>
+    <% end %>
+
+    <h3>Recent answers</h3>
+    <% if @answers.any? %>
+      <ul class="activity-list">
+        <% @answers.each do |answer| %>
+          <li>
+            <p class="no-bottom-margin">
+              <b><%= answer.question.title %></b>
+              <span class="time"><%= format_time(answer.created_at) %></span>
+              <%= link_to icon('reply'), post_question_path(post_id: answer.question.post_id, id: answer.question.id) %>
+            </p>
+            <%= truncate(answer.body, length: 150, omission: "...") %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Empty :'(</p>
+    <% end %>
+  </div>
+  <div class="col-md-4 col-sm-12">
+    <%= render "shared/sidebar" %>
+  </div>
+</div>

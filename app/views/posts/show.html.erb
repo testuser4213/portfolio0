@@ -1,0 +1,55 @@
+<div class="row post-view">
+  <div class="col-md-8 col-sm-12">
+    <span class="posted-at"><%= format_time(@post.created_at) %></span>
+    <h1 class="title">
+      <%= @post.title %>
+      <% if can? :manage, @post %>
+        <small>
+          <%= link_to icon('edit'), edit_post_path(@post), title: "Edit" %>
+          <%= link_to icon('trash-o'), post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, title: "Delete" %>
+        </small>
+      <% end %>
+    </h1>
+    <span class="tags">
+      <% @post.tags.each do |tag| %>
+        <span class="tag"><%= icon('tag') %> <%= link_to tag.name, tag_path(tag.name) %></span>
+      <% end %>
+    </span>
+    <p class="text"><%= markdown(@post.body) %></p>
+
+    <% if can? :manage, @post %>
+      <%= link_to edit_post_path(@post) do %>
+        <%= icon('edit') %> Edit
+      <% end %> |
+      <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= icon('trash-o') %> Delete
+      <% end %> |
+      <%= link_to posts_path do %>
+        <%= icon('arrow-left') %> Back
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-4 col-sm-12">
+    <h3>User questions</h3>
+    <% if user_signed_in? %>
+      <%= link_to "New Question", new_post_question_path(@post), class: "btn btn-default" %>
+    <% end %>
+    <% if @questions.any? %>
+      <div class="lifetime-endpoint">
+        <div class="circle-bar">
+          <div class="start-vertical-line"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+      <%= render @questions %>
+      <div class="lifetime-endpoint">
+        <div class="circle-bar">
+          <div class="finish-vertical-line"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+    <% else %>
+      <p>There aren't any questions :)</p>
+    <% end %>
+  </div>
+</div>
