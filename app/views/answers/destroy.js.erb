@@ -1,3 +1,4 @@
-$("#answer-<%= @answer.id %>").fadeOut(function () {
-  $(this).remove();
-});
+$("#answer-<%= @answer.id %>")
+  .animate({ height: 0, opacity: 0.3 }, 400, 'swing', function () {
+    $(this).remove();
+  });
