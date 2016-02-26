@@ -12,6 +12,12 @@
 @import "users";
 
 
+// remove dotted outline
+a:active, a:focus {
+    outline: none;
+    -moz-outline-style: none;
+}
+
 // selection color
 ::-moz-selection {
   color: #333;
