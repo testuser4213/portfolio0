@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% @posts.each_with_index do |post, i| %>
   <div class="post-view">
     <span class="posted-at"><%= time_ago_in_words(post.created_at) %> ago</span>
     <h1 class="title"><%= link_to post.title, post %></h1>
@@ -9,7 +9,7 @@
     </span>
     <p class="text"><%= markdown truncate(post.body, length: 5000, omission: '...') %></p>
     <%= link_to "Read More", post, class: "readmore" %>
-    <hr>
+    <%= content_tag(:hr) if i < @posts.size - 1 %>
   </div>
 <% end %>
 

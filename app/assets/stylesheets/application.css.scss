@@ -83,36 +83,30 @@
 // app container
 .app-content {
   margin-top: 70px;
-  margin-bottom: 100px;
 }
 
 // app footer
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin-top: 20px;
-  padding: 20px;
-  background: #333;
-  color: #fff;
-  box-shadow: 0 0 2px #333;
+.flat-list {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
 
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
+footer {
   .link {
     font-size: 0.9em;
     font-weight: 600;
     text-transform: uppercase;
-    color: #fff;
+    color: #333;
     transition: all 300ms;
 
     &:hover {
-      color: #eaeaea;
-    }
-  }
-
-  .center-on-small {
-    @media (max-width: 992px) {
-      text-align: center;
+      color: #555;
     }
   }
 }
@@ -121,7 +115,6 @@ footer {
   max-width: 250px;
 }
 
-// sidebar recent items
 .recent-items {
   list-style: none;
   padding: 0;
@@ -152,7 +145,6 @@ footer {
   }
 }
 
-// nav bat shadow
 .navbar {
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.30);
 }

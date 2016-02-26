@@ -1,35 +1,88 @@
-<div class="jumbotron">
-  <h1>LOL tuts</h1>
-  <p>Read tutorials and ask questions</p>
-  <p><%= link_to "Read", posts_path, class: "btn btn-primary btn-lg" %></p>
+<div class="fixed-stuff">
+  <div class="welcome">
+    <div class="intro text-center">
+      <h1 class="logo">loltuts</h1>
+      <p class="description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+      </p>
+      <%= link_to "Read tuts", posts_path, class: "button" %>
+    </div>
+  </div>
 </div>
 
-<div class="row intro-icons">
-  <div class="col-md-4 col-sm-12 text-center">
-    <p><%= icon 'book', class: 'intro-icon' %></p>
-    <span class="intro-icon-label">Learn</span>
-    <p class="intro-description">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    </p>
+<div class="hover-stuff">
+  <div class="section container">
+    <div class="row intro-icons">
+      <div class="col-md-4 col-sm-12 text-center">
+        <p><%= icon 'book', class: 'intro-icon' %></p>
+        <span class="intro-icon-label">Learn</span>
+        <p class="intro-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+      <div class="col-md-4 col-sm-12 text-center">
+        <p><%= icon 'question', class: 'intro-icon' %></p>
+        <span class="intro-icon-label">Ask</span>
+        <p class="intro-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+      <div class="col-md-4 col-sm-12 text-center">
+        <p><%= icon 'leaf', class: 'intro-icon' %></p>
+        <span class="intro-icon-label">Develop</span>
+        <p class="intro-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4 col-sm-12 text-center">
-    <p><%= icon 'question', class: 'intro-icon' %></p>
-    <span class="intro-icon-label">Ask</span>
-    <p class="intro-description">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    </p>
+
+  <div class="section black-section categories">
+    <div class="container">
+      <p class="text-center heading">Latest tuts</p>
+
+      <% @latest_tuts.in_groups_of(2, false) do |group| %>
+        <div class="row">
+          <% group.each do |tut| %>
+            <div class="col-md-6 col-xs-12 tut">
+              <h1><%= link_to tut.title, tut, class: "link" %></h1>
+              <span class="timestamp"><%= icon("clock-o") %> <%= format_time(tut.created_at) %></span>
+              <p class="body"><%= truncate(tut.body, length: 400, omission: "...") %></p>
+              <h4><%= link_to "Read more", tut, class: "more" %></h4>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-4 col-sm-12 text-center">
-    <p><%= icon 'leaf', class: 'intro-icon' %></p>
-    <span class="intro-icon-label">Develop</span>
-    <p class="intro-description">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    </p>
+
+  <div class="section member">
+    <div class="container">
+      <div class="text-center">
+        <h1>Become a bro</h1>
+        <p class="become-member">Register right now!</p>
+        <%= link_to "Register", new_user_registration_path, class: "signup-btn" %>
+      </div>
+    </div>
   </div>
+
+  <!-- footer -->
+  <hr>
+  <footer>
+    <div class="container text-center">
+        <ul class="flat-list">
+          <li><%= link_to "Tutorials", posts_path, class: "link" %></li>
+          <li><%= link_to "About", about_path, class: "link" %></li>
+        </ul>
+      <p>
+        2016 - LOL Tutorials
+      </p>
+    </div>
+  </footer>
 </div>
