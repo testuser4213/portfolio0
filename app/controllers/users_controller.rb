@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all.page params[:page]
+    @users = User.order(id: :asc).page params[:page]
   end
 
   # GET /users/:id
